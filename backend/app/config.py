@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     app_version: str = "1.0.0"
     environment: str = "development"
     debug: bool = False
-    secret_key: str = "changeme_super_secret_key_minimum_32_chars"
+    secret_key: str = ""
     allowed_origins: str = "http://localhost:3000,http://localhost:5173"
 
     @property
@@ -28,12 +28,12 @@ class Settings(BaseSettings):
         return [o.strip() for o in self.allowed_origins.split(",")]
 
     # ─── Database ────────────────────────────────────────────
-    database_url: str = "postgresql+asyncpg://securereview:securereview_secret@localhost:5432/securereview"
+    database_url: str = ""
     database_pool_size: int = 10
     database_max_overflow: int = 20
 
     # ─── Redis ───────────────────────────────────────────────
-    redis_url: str = "redis://:redis_secret@localhost:6379/0"
+    redis_url: str = ""
 
     # ─── JWT ─────────────────────────────────────────────────
     jwt_algorithm: str = "HS256"
